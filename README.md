@@ -12,6 +12,10 @@ This repository contains a series of increasingly complex compiler implementatio
    - Simple parsing concepts
    - Understanding compiler pipelines
    - Building an Abstract Syntax Tree (AST)
+   - Assembly code generation through custom assembler
+   - Converting expressions into machine instructions
+   - Object file generation and linking process
+   - Memory management and linking multiple files
 
 2. **Tiny Language Interpreter**
    - Variables and assignment operations
