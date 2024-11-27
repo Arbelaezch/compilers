@@ -1,0 +1,36 @@
+The parser takes our stream of tokens and builds a tree structure (Abstract Syntax Tree or AST) that represents the mathematical expression while respecting operator precedence. Here's how it works:
+
+Entry Point: When we call parse(), it starts at expression(), which represents the lowest precedence operations (+ and -).
+Precedence Layers:
+
+expression() handles + and -
+term() handles * and /
+factor() handles numbers (and could handle parentheses)
+
+
+Tree Building Process:
+For input like "2 + 3 * 4":
+expression() starts
+├── gets "2" via factor()
+├── sees "+"
+├── calls term() for right side
+    ├── gets "3" via factor()
+    ├── sees "*"
+    ├── gets "4" via factor()
+    └── builds (3 * 4) subtree
+└── builds final tree: 2 + (3 * 4)
+
+Final Structure:
+    +
+   / \
+  2   *
+     / \
+    3   4
+
+
+This structure ensures that * and / are evaluated before + and - because they're grouped together in the tree structure. When we evaluate this tree, we:
+
+Evaluate the * node first (3 * 4 = 12)
+Then evaluate the + node (2 + 12 = 14)
+
+This is called "recursive descent parsing" because each function can recursively call other parsing functions to build up complex expressions from simple parts.
