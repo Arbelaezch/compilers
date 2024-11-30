@@ -59,6 +59,9 @@ This project implements an interpreter for a simple programming language that su
    x = 5
    if x > 3
      print x
+     while x > 0
+     print x
+     x = x - 1
    ```
    ↓ (Lexer processes)
    ```
